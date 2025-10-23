@@ -128,7 +128,7 @@ a{color:inherit;text-decoration:none}
 /* --- Gallery --- */
 .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center;background:#D3D3D3}
 .card{border-radius:8px;overflow:hidden;cursor:pointer}
-.card img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .35s ease}
+.card img{width:90%;height:220px;object-fit:cover;display:block;transition:transform .35s ease}
 .card:hover img{transform:scale(1.03)}
 
 /* --- Footer --- */
