@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Custom Wear — Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Custom Wear — Premium custom apparel">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header (shared across pages) -->
+  <header class="header">
+    <div class="header-inner container">
+      <div class="left">
+        <a class="logo" href="index.html"><img src="images/logo.png" alt="Custom Wear logo"></a>
+      </div>
+
+      <div class="center">
+        <div class="site-title">Custom Wear</div>
+      </div>
+
+      <div class="right">
+        <button class="hamburger" id="hamburger" aria-label="Open menu">☰</button>
+        <nav class="nav desktop-nav" id="navMenu">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a class="cta" href="https://wa.me/27737553136" target="_blank" rel="noopener">WhatsApp</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile slide-in menu (same nav for mobile) -->
+  <nav class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
+    <ul class="drawer-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a class="cta" href="https://wa.me/27737553136" target="_blank" rel="noopener">WhatsApp</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero (transparent header overlaps) -->
+  <section class="hero full-bleed">
+    <img class="hero-img" src="images/hero.jpg" alt="Hero image">
+    <div class="hero-overlay"></div>
+    <div class="hero-content container">
+      <h1 class="hero-title">Premium custom apparel, made locally</h1>
+      <p class="hero-sub">High-quality printing, custom finishes and quick response times. Small runs and bulk orders welcome.</p>
+      <div class="hero-actions">
+        <a class="btn" href="contact.html">Start an order</a>
+        <a class="btn ghost" href="#gallery">View work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About (centered) -->
+  <section class="section about center container">
+    <h2>About Us</h2>
+    <p class="intro">Custom Wear combines craftsmanship with modern production techniques to deliver clothing that fits and lasts. We specialise in HTV, DTF, DTG and embroidery for personal and corporate orders.</p>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="section container">
+    <h2>Portfolio</h2>
+    <div class="gallery">
+      <div class="card" data-caption="Banner mobile"><img src="images/sample1.jpg" alt="Banner mobile"></div>
+      <div class="card" data-caption="Banner"><img src="images/sample2.jpg" alt="Banner"></div>
+      <div class="card" data-caption="3D Icon"><img src="images/sample3.jpg" alt="3D Icon"></div>
+      <div class="card" data-caption="Embroidery"><img src="images/sample4.jpg" alt="Embroidery"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© Custom Wear — 073 755 3136</div>
+      <div class="footer-links">
+        <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+    <img id="lbImage" src="" alt="">
+    <div class="lb-caption" id="lbCaption"></div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

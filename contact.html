@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Custom Wear — Contact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner container">
+      <div class="left"><a class="logo" href="index.html"><img src="images/logo.png" alt="Custom Wear logo"></a></div>
+      <div class="center"><div class="site-title">Custom Wear</div></div>
+      <div class="right">
+        <button class="hamburger" id="hamburger-contact" aria-label="Open menu">☰</button>
+        <nav class="nav desktop-nav" id="navMenuContact">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a class="cta" href="https://wa.me/27737553136" target="_blank" rel="noopener">WhatsApp</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-drawer" id="mobileDrawerContact" aria-hidden="true">
+    <button class="drawer-close" id="drawerCloseContact" aria-label="Close menu">✕</button>
+    <ul class="drawer-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a class="cta" href="https://wa.me/27737553136" target="_blank" rel="noopener">WhatsApp</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="section container">
+      <h1>Get in touch</h1>
+      <p class="intro">Email or WhatsApp us to start your custom order. WhatsApp: <a href="https://wa.me/27737553136">073 755 3136</a></p>
+
+      <form class="contact-form" action="#" method="POST" onsubmit="alert('Form demo: WhatsApp contact used; this demo does not send email'); return false;">
+        <label>
+          <span>Your name</span>
+          <input type="text" name="name" required>
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" required>
+        </label>
+        <label>
+          <span>Message</span>
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+        <button class="btn" type="submit">Send message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© Custom Wear — 073 755 3136</div>
+      <div class="footer-links"><a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a></div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
