@@ -105,7 +105,7 @@ a{color:inherit;text-decoration:none}
   font-weight: 700;
   letter-spacing: 0.6px;
   font-size: 1.2rem;
-  color: #fff; /* Make visible over hero */
+  color: #000; /* Make visible over hero */
 }
 
 /* --- Responsive adjustments --- */
