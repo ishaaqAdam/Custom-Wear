@@ -35,15 +35,89 @@ a{color:inherit;text-decoration:none}
 .header.solid { background: #fff; box-shadow: 0 6px 18px rgba(11,23,36,0.06); }
 
 /* --- Hero --- */
-.full-bleed{position:relative;margin-top:0}
-.hero-img{width:100%;height:600px;object-fit:cover;display:block;filter:brightness(.55)}
-.hero-overlay{position:absolute;inset:0;pointer-events:none}
-.hero-content{position:absolute;inset:0;display:flex;align-items:center}
-.hero-content .container{max-width:980px}
-.hero-title{font-family:'Montserrat',sans-serif;color:#fff;font-size:3rem;margin:0 0 12px;line-height:1.02}
-.hero-sub{color:rgba(255,255,255,0.9);margin:0 0 22px;font-size:1.05rem}
-.hero-actions .btn{display:inline-block;padding:12px 20px;border-radius:999px;background:#fff;color:#0b1724;font-weight:700;margin-right:12px}
-.hero-actions .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.14);color:#fff}
+.full-bleed {
+  position: relative;
+  margin-top: 0;
+}
+
+.hero-img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.55);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35); /* Slight overlay for readability */
+  pointer-events: none;
+}
+
+.hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-title {
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  font-size: 3rem;
+  margin: 0 0 20px;
+  line-height: 1.1;
+  max-width: 800px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.hero-actions .btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: #fff;
+  color: #0b1724;
+  font-weight: 700;
+  text-align: center;
+}
+
+.hero-actions .btn.ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  color: #fff;
+}
+
+/* --- Site title in header --- */
+.site-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  font-size: 1.2rem;
+  color: #fff; /* Make visible over hero */
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width:768px){
+  .hero-img{height:420px}
+  .hero-title{font-size:1.8rem}
+}
+
+@media (max-width:420px){
+  .hero-img{height:320px}
+  .hero-title{font-size:1.3rem}
+}
 
 /* --- Sections --- */
 .section{padding:64px 0}
