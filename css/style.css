@@ -31,8 +31,13 @@ a{color:inherit;text-decoration:none}
 .desktop-nav .cta{background:var(--accent);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700}
 
 /* Header transparent over hero: default is transparent; add class .solid on scroll if needed */
-.header.transparent { background: transparent;color: #fff }
+.header.transparent { background: transparent;color: #fff; }
+.header.transparent.site-title {color: #fff;}
+/* Invert logo when transparent */
+.header.transparent.logo img {filter: brightness(0) invert(1); transition: filter 0.3s ease;}
 .header.solid { background: #fff; box-shadow: 0 6px 18px rgba(11,23,36,0.06); }
+.header.solid .site-title { color: #000; }
+.header.solid .logo img { filter: none; }
 
 /* --- Hero --- */
 .full-bleed {
