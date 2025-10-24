@@ -55,10 +55,15 @@ document.addEventListener('DOMContentLoaded', function(){
   const header = document.querySelector('.header');
   const hero = document.querySelector('.hero-img');
 
-  function onScrollHeader(){
-    if(window.scrollY > 30) header.classList.add('solid');
-    else header.classList.remove('solid');
+ function onScrollHeader(){
+  if(window.scrollY > 30) {
+    header.classList.remove('transparent');
+    header.classList.add('solid');
+  } else {
+    header.classList.remove('solid');
+    header.classList.add('transparent');
   }
+}
   onScrollHeader();
   window.addEventListener('scroll', onScrollHeader);
 
