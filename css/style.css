@@ -278,6 +278,16 @@ a{color:inherit;text-decoration:none}
   .hero-title{font-size:1.8rem}
   .gallery { display: flex; gap: 10px;overflow-x: auto; scroll-snap-type: x mandatory;padding-bottom: 10px;}
   .gallery .card { min-width: calc(50% - 10px); scroll-snap-align: start;}
+  .gallery-wrapper {position: relative; overflow-x: auto;scroll-snap-type: x mandatory;-webkit-overflow-scrolling: touch;scroll-behavior: smooth;}
+    /* --- Pagination Dots --- */
+  .gallery-dots { position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 10; }
+  .gallery-dots span { width: 8px;  height: 8px; background: rgba(255,255,255,0.6); border-radius: 50%; transition: background 0.3s;  }
+  .gallery-dots span.active { background: #fff; }
+
+  /* --- Swipe Hint Icon --- */
+  .swipe-hint { position: absolute;  bottom: 20px;  right: 20px; font-size: 20px; color: #fff; opacity: 0.7; animation: swipe-bounce 1.2s infinite; z-index: 10; }
+  @keyframes swipe-bounce { 0%, 100% { transform: translateX(0); }  50% { transform: translateX(-8px); } }
+  
   .footer-inner{flex-direction:column;align-items:flex-start;gap:8px}
   .header-inner{padding:12px 0}
   .site-title{font-size:0.98rem}
