@@ -45,6 +45,27 @@ document.addEventListener('DOMContentLoaded', function(){
       }
     });
   }
+  
+  if(window.innerWidth <= 768) {
+  const gallery = document.querySelector('.gallery-wrapper');
+  const dots = document.querySelectorAll('.gallery-dots span');
+
+  gallery.addEventListener('scroll', () => {
+    const scrollLeft = gallery.scrollLeft;
+    const cardWidth = gallery.querySelector('.card').offsetWidth + 10; // gap
+    const index = Math.round(scrollLeft / cardWidth);
+
+    dots.forEach(dot => dot.classList.remove('active'));
+    if(dots[index]) dots[index].classList.add('active');
+  });
+    // Auto-scroll every 3s
+  let autoIndex = 0;
+  setInterval(() => {
+    autoIndex++;
+    if(autoIndex >= gallery.children[0].children.length) autoIndex = 0;
+    gallery.scrollTo({ left: autoIndex * (gallery.querySelector('.card').offsetWidth + 10), behavior: 'smooth' });
+  }, 3000);
+}
 
   // Bind drawer for each page instance (IDs differ per page)
   wireDrawer('hamburger', 'mobileDrawer', 'drawerClose');
