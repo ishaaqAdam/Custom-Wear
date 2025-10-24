@@ -46,24 +46,35 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   }
   
-  if(window.innerWidth <= 768) {
-  const gallery = document.querySelector('.gallery-wrapper');
-  const dots = document.querySelectorAll('.gallery-dots span');
+if(window.innerWidth <= 768){
+  const galleryWrapper = document.querySelector('.gallery-wrapper');
+  const gallery = galleryWrapper.querySelector('.gallery');
+  const dotsContainer = galleryWrapper.querySelector('.gallery-dots');
+  const cards = gallery.querySelectorAll('.card');
 
-  gallery.addEventListener('scroll', () => {
-    const scrollLeft = gallery.scrollLeft;
-    const cardWidth = gallery.querySelector('.card').offsetWidth + 10; // gap
+  // Create dots dynamically
+  cards.forEach((_, i) => {
+    const dot = document.createElement('span');
+    if(i === 0) dot.classList.add('active');
+    dotsContainer.appendChild(dot);
+  });
+  const dots = dotsContainer.querySelectorAll('span');
+
+  // Update dots on scroll
+  galleryWrapper.addEventListener('scroll', () => {
+    const scrollLeft = galleryWrapper.scrollLeft;
+    const cardWidth = cards[0].offsetWidth + 10; // include gap
     const index = Math.round(scrollLeft / cardWidth);
-
     dots.forEach(dot => dot.classList.remove('active'));
     if(dots[index]) dots[index].classList.add('active');
   });
-    // Auto-scroll every 3s
+
+  // Auto-scroll every 3s
   let autoIndex = 0;
   setInterval(() => {
     autoIndex++;
-    if(autoIndex >= gallery.children[0].children.length) autoIndex = 0;
-    gallery.scrollTo({ left: autoIndex * (gallery.querySelector('.card').offsetWidth + 10), behavior: 'smooth' });
+    if(autoIndex >= cards.length) autoIndex = 0;
+    galleryWrapper.scrollTo({ left: autoIndex * (cards[0].offsetWidth + 10), behavior: 'smooth' });
   }, 3000);
 }
 
