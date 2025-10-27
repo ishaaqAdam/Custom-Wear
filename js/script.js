@@ -83,21 +83,29 @@ if(window.innerWidth <= 768){
   wireDrawer('hamburger-about', 'mobileDrawerAbout', 'drawerCloseAbout');
   wireDrawer('hamburger-contact', 'mobileDrawerContact', 'drawerCloseContact');
 
-  /* ---------- Desktop header: add .solid on scroll ---------- */
-  const header = document.querySelector('.header');
-  const hero = document.querySelector('.hero-img');
+ /* ---------- Desktop header: scroll behavior only on homepage ---------- */
+const header = document.querySelector('.header');
+const hero = document.querySelector('.hero-img');
 
- function onScrollHeader(){
-  if(window.scrollY > 30) {
-    header.classList.remove('transparent');
-    header.classList.add('solid');
-  } else {
-    header.classList.remove('solid');
-    header.classList.add('transparent');
+if(hero) {
+  // Home page logic (hero exists → transparent allowed)
+  function onScrollHeader(){
+    if(window.scrollY > 30) {
+      header.classList.remove('transparent');
+      header.classList.add('solid');
+    } else {
+      header.classList.remove('solid');
+      header.classList.add('transparent');
+    }
   }
-}
   onScrollHeader();
   window.addEventListener('scroll', onScrollHeader);
+} else {
+  // No hero (like About / Contact) → always solid
+  header.classList.remove('transparent');
+  header.classList.add('solid');
+}
+
 
   /* ---------- Lightbox for gallery on homepage ---------- */
   const lb = document.getElementById('lightbox');
