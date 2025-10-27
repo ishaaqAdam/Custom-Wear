@@ -321,3 +321,28 @@ a{color:inherit;text-decoration:none}
   .logo img{height:40px;padding-left:20px;margin-left:20px}
   .intro {margin:20px;text-align: center}
 }
+/* --- Force Solid Header on Non-Hero Pages --- */
+.page-about .header,
+.page-contact .header {
+  background: #fff !important;
+  box-shadow: 0 6px 18px rgba(11,23,36,0.06) !important;
+}
+
+.page-about .header .site-title,
+.page-contact .header .site-title,
+.page-about .desktop-nav a,
+.page-contact .desktop-nav a {
+  color: #000 !important;
+}
+
+.page-about .desktop-nav .cta,
+.page-contact .desktop-nav .cta {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+.page-about .header .logo img,
+.page-contact .header .logo img {
+  filter: none !important;
+}
+
