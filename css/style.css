@@ -444,4 +444,87 @@ a{color:inherit;text-decoration:none}
 
 }
 
+/* --- Contact Page Styling --- */
+
+.page-contact main {
+  margin-top: 60px; /* space below fixed header */
+}
+
+/* Center all section headings and text on contact page */
+.page-contact h1,
+.page-contact h2 {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+/* Paragraph / intro text formatting */
+.page-contact .intro {
+  color: var(--muted);
+  max-width: none;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* Add some visual spacing between sections */
+.page-contact .section {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Optional subtle divider between sections */
+.page-contact .section:not(:last-of-type) {
+  border-bottom: 1px solid var(--muted-2);
+}
+
+/* Fade-in effect for content load */
+.page-contact main {
+  animation: fadeIn 0.8s ease-out both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive improvements */
+@media (max-width:768px) {
+  .page-contact .intro {
+    font-size: 1rem;
+    padding: 0 16px;
+  }
+
+  .page-contact .section {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .page-contact h1 {
+    font-size: 1.8rem;
+  }
+
+  .page-contact h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width:420px) {
+  .page-contact h1 {
+    font-size: 1.5rem;
+  }
+  .page-contact h2 {
+    font-size: 1.2rem;
+  }
+  .section-heading {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+
+}
 
