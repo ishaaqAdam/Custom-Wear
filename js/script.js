@@ -106,6 +106,36 @@ if(hero) {
   header.classList.add('solid');
 }
 
+  /* ---------- contact form ---------- */
+  const form = document.getElementById('contact-form');
+  const successMessage = document.getElementById('success-message');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        form.style.display = 'none'; // hide form
+        successMessage.style.display = 'block'; // show success message
+      } else {
+        alert('Oops! There was a problem submitting your form.');
+      }
+    } catch (error) {
+      alert('Oops! There was a problem submitting your form.');
+      console.error(error);
+    }
+  });
+
 
   /* ---------- Lightbox for gallery on homepage ---------- */
   const lb = document.getElementById('lightbox');
