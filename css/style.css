@@ -367,7 +367,7 @@ a{color:inherit;text-decoration:none}
 /* Paragraph / intro text formatting */
 .page-about .intro {
   color: var(--muted);
-  max-width: 800px;
+  max-width: 1024px;
   margin: 0 auto;
   text-align: center;
   line-height: 1.7;
