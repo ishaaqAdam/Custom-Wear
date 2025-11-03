@@ -169,6 +169,10 @@ a{color:inherit;text-decoration:none}
   .product-icons-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  /* remove dividers on mobile */
+  .product-item::after {
+    display: none;
+  }
 }
 
 .product-item img {
