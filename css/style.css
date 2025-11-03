@@ -149,7 +149,7 @@ a{color:inherit;text-decoration:none}
   grid-template-columns: repeat(4, 1fr);
   align-items: center;
   justify-items: center;
-  gap: 10px;
+  gap: 0px;
   position: relative;
 }
 
@@ -158,7 +158,7 @@ a{color:inherit;text-decoration:none}
 }
 
 .product-item img {
-  width: 10px;
+  width: 60px;
   height: auto;
   filter: brightness(0); /* makes icons black */
   transition: transform 0.3s ease;
