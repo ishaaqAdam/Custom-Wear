@@ -140,27 +140,41 @@ a{color:inherit;text-decoration:none}
 }
 
 /* --- Product Icons Section --- */
-.product-icons-section {
-  padding: 20px 0;
-}
-
 .product-icons-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   align-items: center;
   justify-items: center;
-  gap: 0px;
-  position: relative;
 }
 
 .product-item {
   text-align: center;
+  position: relative;
+  padding: 0 20px; /* spacing between items */
+}
+
+/* Add vertical divider to all except the last item */
+.product-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  right: 0;
+  height: 80%;
+  width: 1px;
+  background-color: #e5e5e5;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .product-icons-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .product-item img {
   width: 60px;
   height: auto;
-  filter: brightness(0); /* makes icons black */
+  filter: brightness(0); /* black icon */
   transition: transform 0.3s ease;
 }
 
@@ -175,26 +189,6 @@ a{color:inherit;text-decoration:none}
   font-weight: 500;
 }
 
-/* --- Divider lines between items --- */
-.divider {
-  height: 60px;
-  width: 1px;
-  background-color: #808080;
-  justify-self: center;
-}
-
-/* --- Responsive --- */
-@media (max-width: 768px) {
-  .product-icons-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5px;
-  }
-
-
-  .product-item img {
-    width: 50px;
-  }
-}
 
 
 
