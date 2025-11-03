@@ -348,3 +348,81 @@ a{color:inherit;text-decoration:none}
   filter: none !important;
 }
 
+/* --- About Page Styling --- */
+
+.page-about main {
+  margin-top: 120px; /* space below fixed header */
+}
+
+/* Center all section headings and text on About page */
+.page-about h1,
+.page-about h2 {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+/* Paragraph / intro text formatting */
+.page-about .intro {
+  color: var(--muted);
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* Add some visual spacing between sections */
+.page-about .section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/* Optional subtle divider between sections */
+.page-about .section:not(:last-of-type) {
+  border-bottom: 1px solid var(--muted-2);
+}
+
+/* Fade-in effect for content load */
+.page-about main {
+  animation: fadeIn 0.8s ease-out both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive improvements */
+@media (max-width:768px) {
+  .page-about .intro {
+    font-size: 1rem;
+    padding: 0 16px;
+  }
+
+  .page-about .section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .page-about h1 {
+    font-size: 1.8rem;
+  }
+
+  .page-about h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width:420px) {
+  .page-about h1 {
+    font-size: 1.5rem;
+  }
+  .page-about h2 {
+    font-size: 1.2rem;
+  }
+}
+
+
