@@ -36,11 +36,16 @@
   </nav>
 
   <main>
-    <section class="section container contact-section">
+   <section class="section container contact-section">
   <h1>Get in touch</h1>
   <p class="intro">Email or WhatsApp us to start your custom order.</p>
 
-  <form class="contact-form" action="mailto:ishaaq1512@gmail.com" method="POST" enctype="text/plain">
+  <!-- Success message (hidden by default) -->
+  <div id="success-message" class="success-message" style="display: none;">
+    <p>Thank you! Your message has been sent. We’ll get back to you within 24 hours.</p>
+  </div>
+
+  <form id="contact-form" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
     <label>
       <span>Full Name</span>
       <input type="text" name="name" required>
@@ -56,6 +61,7 @@
     <button class="btn" type="submit">Send message</button>
   </form>
 </section>
+
   </main>
 
   <footer class="footer">
