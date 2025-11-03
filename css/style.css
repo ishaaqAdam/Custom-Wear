@@ -158,7 +158,7 @@ a{color:inherit;text-decoration:none}
   content: "";
   position: absolute;
   top: 10%;
-  right: 20%;
+  right: -40%;
   height: 80%;
   width: 1px;
   background-color: #e5e5e5;
@@ -420,7 +420,7 @@ a{color:inherit;text-decoration:none}
   .featured-logos-wrapper { overflow: hidden; position: relative;  width: 100%;  }
   .featured-logos { display: flex; gap: 20px; width: max-content;  /* allow horizontal scroll */
     animation: scroll-logos 10s linear infinite; /* slow continuous scroll */ }
-  .logo-card { height: 60px ; width: 20px; flex: 0 0 calc(50% - 10px); /* 2 logos visible at a time */ }
+  .logo-card { height:80px ; width: 20px; flex: 0 0 calc(50% - 10px); /* 2 logos visible at a time */ }
   
   /* Duplicate logos visually */
   .featured-logos::after {
