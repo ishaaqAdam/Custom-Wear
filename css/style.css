@@ -139,6 +139,73 @@ a{color:inherit;text-decoration:none}
   color: #fff;
 }
 
+/* --- Product Icons Section --- */
+.product-icons-section {
+  padding: 60px 0;
+}
+
+.product-icons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  justify-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.product-item {
+  text-align: center;
+}
+
+.product-item img {
+  width: 60px;
+  height: auto;
+  filter: brightness(0); /* makes icons black */
+  transition: transform 0.3s ease;
+}
+
+.product-item:hover img {
+  transform: scale(1.1);
+}
+
+.product-item p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: var(--text, #0b1724);
+  font-weight: 500;
+}
+
+/* --- Divider lines between items --- */
+.divider {
+  height: 60px;
+  width: 1px;
+  background-color: #e5e5e5;
+  justify-self: center;
+}
+
+/* Hide dividers at row ends (optional, for better spacing) */
+.product-icons-grid > .divider:nth-child(4n) {
+  display: none;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .product-icons-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .divider {
+    display: none; /* remove dividers on mobile */
+  }
+
+  .product-item img {
+    width: 50px;
+  }
+}
+
+
+
 /* --- Site title in header --- */
 .site-title {
   font-family: 'Montserrat', sans-serif;
