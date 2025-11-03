@@ -376,8 +376,8 @@ a{color:inherit;text-decoration:none}
 
 /* Add some visual spacing between sections */
 .page-about .section {
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 /* Optional subtle divider between sections */
