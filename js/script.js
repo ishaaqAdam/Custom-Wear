@@ -162,5 +162,28 @@ if(hero) {
     lb.addEventListener('click', (e)=> { if(e.target === lb) { lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); }});
     document.addEventListener('keydown', (e)=> { if(e.key === 'Escape') { lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); }});
   }
+  
+});
 
+  /* ---------- Our services flip ---------- */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".card-inner");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("scroll-flip");   // flip when in view
+        } else {
+          entry.target.classList.remove("scroll-flip"); // unflip when out of view
+        }
+      });
+    },
+    {
+      threshold: 0.6 // flip when 60% of card is visible
+    }
+  );
+
+  cards.forEach((card) => observer.observe(card));
 });
