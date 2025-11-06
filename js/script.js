@@ -80,8 +80,8 @@ if(window.innerWidth <= 768){
 
   // Bind drawer for each page instance (IDs differ per page)
   wireDrawer('hamburger', 'mobileDrawer', 'drawerClose');
-  wireDrawer('hamburger-about', 'mobileDrawerAbout', 'drawerCloseAbout');
-  wireDrawer('hamburger-contact', 'mobileDrawerContact', 'drawerCloseContact');
+  wireDrawer('hamburger-about', 'navMenuAbout', 'drawerCloseAbout');
+  wireDrawer('hamburger-contact', 'navMenuContact', 'drawerCloseContact');
 
  /* ---------- Desktop header: scroll behavior only on homepage ---------- */
 const header = document.querySelector('.header');
