@@ -184,7 +184,7 @@ a{color:inherit;text-decoration:none}
   /* show divider after item 3 */
   .product-item:nth-child(3)::after {
     display: block;
-    right: 50%;
+    right: -50%;
   }
 }
 
@@ -424,11 +424,11 @@ a{color:inherit;text-decoration:none}
     gap: 20px;
   }
   .card-back h3 {
-    font-size: 1.1em; /* smaller title */
+    font-size: 0.9em; /* smaller title */
   }
 
   .card-back p {
-    font-size: 0.85em; /* smaller description */
+    font-size: 0.6em; /* smaller description */
   }
 }
 
