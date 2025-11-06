@@ -127,13 +127,14 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('keydown', (e)=> { if(e.key === 'Escape') lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); });
   }
 
-  /* ---------- Our Services Flip (Option C) ---------- */
+  /* ---------- Our Services Flip  ---------- */
+document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".card-inner");
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-  if(cards.length){
-    if(isMobile){
-      // MOBILE = TAP TO FLIP, ignore scroll
+  if(cards.length) {
+    if(isMobile) {
+      // MOBILE = tap to flip (ignore scroll)
       cards.forEach(card => {
         let startY = 0, endY = 0;
 
@@ -145,13 +146,17 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         });
       });
+
     } else {
-      // DESKTOP = Hover + scroll flip
-      // Optional: hover
+      // DESKTOP = hover flip
       cards.forEach(card => {
         card.parentElement.addEventListener("mouseenter", () => card.classList.add("flip"));
         card.parentElement.addEventListener("mouseleave", () => card.classList.remove("flip"));
       });
+    }
+  }
+});
+
 
       // Optional: scroll flip (uncomment if needed)
       /*
