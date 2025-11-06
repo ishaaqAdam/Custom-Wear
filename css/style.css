@@ -535,13 +535,20 @@ a{color:inherit;text-decoration:none}
 
 /* Pill background — replace with your image */
 .pill-bg {
-  width: 100%;
-  padding-top: 50%;
-  background-image: url('./images/backgroundpill.jpg');
-  background-size: cover;
-  background-position: center;
-  border-radius: 200px;
   position: relative;
+  width: 100%;
+  padding-top: 50%; /* keeps pill aspect ratio */
+  border-radius: 200px;
+  overflow: hidden; /* VERY IMPORTANT — clips the image into the pill */
+}
+.pill-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* keeps the image covering the whole shape */
+  object-position: center;
 }
 
 /* Centered text */
