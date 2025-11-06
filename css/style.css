@@ -489,6 +489,109 @@ a{color:inherit;text-decoration:none}
   opacity: 1;
 }
 
+/* --- Pill section --- */
+/* Background similar to Allbirds */
+.mndset-hero {
+  background: #f3efe7;
+  padding: 120px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.pill-container {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  text-align: center;
+}
+
+/* Dot + line decoration */
+.hero-deco {
+  position: absolute;
+  top: -90px; /* adjust for spacing above pill */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+}
+
+.deco-line {
+  width: 2px;
+  height: 70px;
+  background: #000;
+  opacity: 0.7;
+}
+
+.deco-dot {
+  width: 10px;
+  height: 10px;
+  background: #000;
+  border-radius: 50%;
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+/* Pill background — replace with your image */
+.pill-bg {
+  width: 100%;
+  padding-top: 50%;
+  background-image: url('your-pill-background.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 200px;
+  position: relative;
+}
+
+/* Centered text */
+.pill-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+/* Shoe PNG */
+.hero-shoe {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 450px;
+  max-width: 90%;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero-deco {
+    top: -70px;
+  }
+
+  .deco-line {
+    height: 50px;
+  }
+
+  .pill-content {
+    width: 85%;
+    font-size: 1.15rem;
+  }
+
+  .hero-shoe {
+    width: 280px;
+    bottom: -40px;
+  }
+
+  .pill-bg {
+    padding-top: 60%;
+    border-radius: 150px;
+  }
+}
 
 /* --- Gallery --- */
 .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin: 20px}
