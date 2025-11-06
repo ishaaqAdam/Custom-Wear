@@ -44,6 +44,10 @@ document.addEventListener('DOMContentLoaded', function(){
         drawer.setAttribute('aria-hidden','true');
       }
     });
+      // Bind drawer for each page instance (IDs differ per page)
+  wireDrawer('hamburger', 'mobileDrawer', 'drawerClose');
+  wireDrawer('hamburger-about', 'navMenuAbout', 'drawerCloseAbout');
+  wireDrawer('hamburger-contact', 'navMenuContact', 'drawerCloseContact');
   }
 
 if(window.innerWidth <= 768){
@@ -78,10 +82,7 @@ if(window.innerWidth <= 768){
   }, 3000);
 }
 
-  // Bind drawer for each page instance (IDs differ per page)
-  wireDrawer('hamburger', 'mobileDrawer', 'drawerClose');
-  wireDrawer('hamburger-about', 'navMenuAbout', 'drawerCloseAbout');
-  wireDrawer('hamburger-contact', 'navMenuContact', 'drawerCloseContact');
+
 
  /* ---------- Desktop header: scroll behavior only on homepage ---------- */
 const header = document.querySelector('.header');
