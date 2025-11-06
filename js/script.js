@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     },
     {
-      threshold: 0.6 // flip when 60% of card is visible
+      threshold: 1.0 // flip when 100% of card is visible
     }
   );
 
