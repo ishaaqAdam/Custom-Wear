@@ -165,6 +165,12 @@ if(hero) {
 
 });
 
+  /* ---------- Feature logo scroll ---------- */
+if (window.innerWidth <= 768) {
+  const logos = document.querySelector('.featured-logos');
+  logos.innerHTML += logos.innerHTML; // duplicate logos for smooth scroll
+}
+
   /* ---------- Our services flip ---------- */
 
 document.addEventListener("DOMContentLoaded", () => {
