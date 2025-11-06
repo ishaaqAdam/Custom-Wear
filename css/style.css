@@ -592,7 +592,7 @@ a{color:inherit;text-decoration:none}
 /* Shoe PNG */
 .hero-shoe {
   position: absolute;
-  bottom: -120px;
+  bottom: -180px;
   left: 50%;
   transform: translateX(-50%);
   width: 420px;
