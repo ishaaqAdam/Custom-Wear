@@ -574,10 +574,6 @@ a{color:inherit;text-decoration:none}
     /* Trick: copy all children using a flex container for smooth scroll */
   }
 
-  /* Pause on hover (optional) */
-  .featured-logos-wrapper:hover .featured-logos {
-    animation-play-state: paused;  }
-
   /* Keyframes for continuous scroll */
   @keyframes scroll-logos {
     0% { transform: translateX(0); }
