@@ -569,7 +569,7 @@ a{color:inherit;text-decoration:none}
   /* Keyframes for continuous scroll */
   @keyframes scroll-logos {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* adjust -50% if needed for number of logos */
+    100% { transform: translateX(-90%); } /* adjust -50% if needed for number of logos */
   }
 }
 
