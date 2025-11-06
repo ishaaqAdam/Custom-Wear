@@ -496,6 +496,7 @@ a{color:inherit;text-decoration:none}
   padding: 140px 20px 160px;
   display: flex;
   justify-content: center;
+  margin-top: 10px;
 }
 
 .pill-container {
@@ -576,7 +577,7 @@ a{color:inherit;text-decoration:none}
   left: 50%;
   transform: translate(-50%, -50%);
   width: 70%;
-  color: white;
+  color: black;
   font-size: 1.6rem;
   font-weight: 300;
   line-height: 1.5;
