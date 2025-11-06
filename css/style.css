@@ -302,45 +302,15 @@ a{color:inherit;text-decoration:none}
 }
 
 /* --- Our Services --- */
-.section-subtitle {
-  font-size: 1.1em;
-  color: #666;
-  display: flex;
-  align-items: center;
-  justify-content: center; /* centers text + arrow */
-  gap: 6px; /* space between text and arrow */
-}
-
-.section-subtitle .arrow {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-left: 2px solid #000;
-  border-bottom: 2px solid #000;
-  transform: rotate(45deg); /* downward arrow */
-  margin-left: 4px;
-  transition: transform 0.3s;
-}
-
-/* Optional: bounce animation */
-.section-subtitle .arrow.bounce {
-  animation: bounce 1s infinite;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: rotate(45deg) translateY(0); }
-  40% { transform: rotate(45deg) translateY(5px); }
-  60% { transform: rotate(45deg) translateY(3px); }
-}
-
+/* Basic reset / container */
 .our-services-section {
-  background-color: #F2F2F2;
-  padding: 40px 20px 60px;
-  text-align: center;
+  background-color: #f8f9fb;  /* light background colour, adjust as desired */
+  padding: 60px 20px;
   font-family: Arial, sans-serif;
+  text-align: center;
 }
 
-.container {
+.our-services-section .container {
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -348,6 +318,7 @@ a{color:inherit;text-decoration:none}
 .section-title {
   font-size: 2.5em;
   margin-bottom: 10px;
+  color: #333;
 }
 
 .section-subtitle {
@@ -356,52 +327,29 @@ a{color:inherit;text-decoration:none}
   color: #666;
 }
 
-/* GRID — 4 on desktop, 2 on tablet, 1 on small mobile */
+/* Grid of service cards */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
 }
 
-@media (max-width: 768px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* CARD */
+/* Card flip effect */
 .service-card {
   perspective: 1000px;
 }
-
 .card-inner {
   position: relative;
   width: 100%;
   height: 0;
-  padding-bottom: 75%;
+  padding-bottom: 75%; /* 4:3 ratio, adjust if needed */
+  transition: transform 0.6s;
   transform-style: preserve-3d;
-  transition: transform 0.6s ease;
 }
-
-/* REMOVE HOVER FLIP ON MOBILE — JS will handle tap */
-@media (max-width: 768px) {
-  .service-card:hover .card-inner {
-    transform: none !important;
-  }
-}
-
-/* FLIP CLASS FOR BOTH SCROLL + TAP */
-.card-inner.flip {
+.service-card:hover .card-inner {
   transform: rotateY(180deg);
 }
 
-/* FRONT & BACK */
 .card-front,
 .card-back {
   position: absolute;
@@ -417,16 +365,29 @@ a{color:inherit;text-decoration:none}
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .card-back {
   background-color: #fff;
   transform: rotateY(180deg);
   padding: 20px;
+  box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+}
+
+.card-back h3 {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.card-back p {
+  font-size: 0.95em;
+  color: #555;
 }
 
 /* BUTTON */
@@ -446,6 +407,21 @@ a{color:inherit;text-decoration:none}
   background: #36454F;
 }
 
+/* Responsive tweaks */
+/* Default: 4 per row on desktop (auto-fit handles responsiveness) */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* Mobile: 2 per row */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
 
 /* --- Featured In Section --- */
 .featured-section {
