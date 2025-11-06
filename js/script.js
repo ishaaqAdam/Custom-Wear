@@ -1,7 +1,7 @@
-// script.js — hamburger drawer + desktop header behavior + lightbox
-document.addEventListener('DOMContentLoaded', function(){
+// script.js
+document.addEventListener('DOMContentLoaded', function() {
 
-  /* ---------- Drawer / hamburger (works on all pages) ---------- */
+  /* ---------- Drawer / hamburger ---------- */
   function wireDrawer(hamburgerId, drawerId, closeId) {
     const ham = document.getElementById(hamburgerId);
     const drawer = document.getElementById(drawerId);
@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function(){
       });
     }
 
-    // Close when clicking a link inside drawer
     drawer.querySelectorAll && drawer.querySelectorAll('a').forEach(a=>{
       a.addEventListener('click', ()=> {
         drawer.classList.remove('open');
@@ -29,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function(){
       });
     });
 
-    // Close on ESC
     document.addEventListener('keydown', function(e){
       if(e.key === 'Escape') {
         drawer.classList.remove('open');
@@ -37,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function(){
       }
     });
 
-    // Close on resize to desktop
     window.addEventListener('resize', function(){
       if(window.innerWidth > 768) {
         drawer.classList.remove('open');
@@ -45,99 +42,65 @@ document.addEventListener('DOMContentLoaded', function(){
       }
     });
   }
-  
-if(window.innerWidth <= 768){
-  const galleryWrapper = document.querySelector('.gallery-wrapper');
-  const gallery = galleryWrapper.querySelector('.gallery');
-  const dotsContainer = galleryWrapper.querySelector('.gallery-dots');
-  const cards = gallery.querySelectorAll('.card');
 
-  // Create dots dynamically
-  cards.forEach((_, i) => {
-    const dot = document.createElement('span');
-    if(i === 0) dot.classList.add('active');
-    dotsContainer.appendChild(dot);
-  });
-  const dots = dotsContainer.querySelectorAll('span');
-
-  // Update dots on scroll
-  galleryWrapper.addEventListener('scroll', () => {
-    const scrollLeft = galleryWrapper.scrollLeft;
-    const cardWidth = cards[0].offsetWidth + 10; // include gap
-    const index = Math.round(scrollLeft / cardWidth);
-    dots.forEach(dot => dot.classList.remove('active'));
-    if(dots[index]) dots[index].classList.add('active');
-  });
-
-  // Auto-scroll every 3s
-  let autoIndex = 0;
-  setInterval(() => {
-    autoIndex++;
-    if(autoIndex >= cards.length) autoIndex = 0;
-    galleryWrapper.scrollTo({ left: autoIndex * (cards[0].offsetWidth + 10), behavior: 'smooth' });
-  }, 3000);
-}
-
-  // Bind drawer for each page instance (IDs differ per page)
+  // Bind drawers (IDs differ per page)
   wireDrawer('hamburger', 'mobileDrawer', 'drawerClose');
   wireDrawer('hamburger-about', 'mobileDrawerAbout', 'drawerCloseAbout');
   wireDrawer('hamburger-contact', 'mobileDrawerContact', 'drawerCloseContact');
 
- /* ---------- Desktop header: scroll behavior only on homepage ---------- */
-const header = document.querySelector('.header');
-const hero = document.querySelector('.hero-img');
+  /* ---------- Desktop header scroll ---------- */
+  const header = document.querySelector('.header');
+  const hero = document.querySelector('.hero-img');
 
-if(hero) {
-  // Home page logic (hero exists → transparent allowed)
-  function onScrollHeader(){
-    if(window.scrollY > 30) {
-      header.classList.remove('transparent');
-      header.classList.add('solid');
-    } else {
-      header.classList.remove('solid');
-      header.classList.add('transparent');
+  if(header) {
+    function onScrollHeader(){
+      if(hero) {
+        if(window.scrollY > 30) {
+          header.classList.remove('transparent');
+          header.classList.add('solid');
+        } else {
+          header.classList.remove('solid');
+          header.classList.add('transparent');
+        }
+      } else {
+        header.classList.remove('transparent');
+        header.classList.add('solid');
+      }
     }
+    onScrollHeader();
+    window.addEventListener('scroll', onScrollHeader);
   }
-  onScrollHeader();
-  window.addEventListener('scroll', onScrollHeader);
-} else {
-  // No hero (like About / Contact) → always solid
-  header.classList.remove('transparent');
-  header.classList.add('solid');
-}
 
-  /* ---------- contact form ---------- */
+  /* ---------- Contact form ---------- */
   const form = document.getElementById('contact-form');
   const successMessage = document.getElementById('success-message');
 
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
+  if(form){
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const formData = new FormData(form);
 
-    const formData = new FormData(form);
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
 
-    try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
+        if (response.ok) {
+          form.style.display = 'none';
+          if(successMessage) successMessage.style.display = 'block';
+        } else {
+          alert('Oops! There was a problem submitting your form.');
         }
-      });
-
-      if (response.ok) {
-        form.style.display = 'none'; // hide form
-        successMessage.style.display = 'block'; // show success message
-      } else {
+      } catch (error) {
         alert('Oops! There was a problem submitting your form.');
+        console.error(error);
       }
-    } catch (error) {
-      alert('Oops! There was a problem submitting your form.');
-      console.error(error);
-    }
-  });
+    });
+  }
 
-
-  /* ---------- Lightbox for gallery on homepage ---------- */
+  /* ---------- Lightbox for gallery ---------- */
   const lb = document.getElementById('lightbox');
   const lbImg = document.getElementById('lbImage');
   const lbCap = document.getElementById('lbCaption');
@@ -159,45 +122,55 @@ if(hero) {
     if(lbClose){
       lbClose.addEventListener('click', ()=> { lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); });
     }
-    lb.addEventListener('click', (e)=> { if(e.target === lb) { lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); }});
-    document.addEventListener('keydown', (e)=> { if(e.key === 'Escape') { lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); }});
+
+    lb.addEventListener('click', (e)=> { if(e.target === lb) lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); });
+    document.addEventListener('keydown', (e)=> { if(e.key === 'Escape') lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); });
   }
-  
-});
 
-  /* ---------- Our services flip ---------- */
-
-document.addEventListener("DOMContentLoaded", () => {
+  /* ---------- Our Services Flip (Option C) ---------- */
   const cards = document.querySelectorAll(".card-inner");
-
-  // Detect mobile
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-  if (isMobile) {
-    //  MOBILE — TAP TO FLIP
-    cards.forEach(card => {
-      card.parentElement.addEventListener("click", () => {
-        card.classList.toggle("flip");
-      });
-    });
+  if(cards.length){
+    if(isMobile){
+      // MOBILE = TAP TO FLIP, ignore scroll
+      cards.forEach(card => {
+        let startY = 0, endY = 0;
 
-  } else {
-    //  DESKTOP — SCROLL FLIP
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("flip");   // flip when visible
-          } else {
-            entry.target.classList.remove("flip"); // unflip when leaving
+        card.parentElement.addEventListener("touchstart", e => { startY = e.touches[0].clientY; });
+        card.parentElement.addEventListener("touchmove", e => { endY = e.touches[0].clientY; });
+        card.parentElement.addEventListener("touchend", () => {
+          if(Math.abs(startY - endY) < 10){ // only flip if tap, not scroll
+            card.classList.toggle("flip");
           }
         });
-      },
-      {
-        threshold: 0.6
-      }
-    );
+      });
+    } else {
+      // DESKTOP = Hover + scroll flip
+      // Optional: hover
+      cards.forEach(card => {
+        card.parentElement.addEventListener("mouseenter", () => card.classList.add("flip"));
+        card.parentElement.addEventListener("mouseleave", () => card.classList.remove("flip"));
+      });
 
-    cards.forEach((card) => observer.observe(card));
+      // Optional: scroll flip (uncomment if needed)
+      /*
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if(entry.isIntersecting){
+              entry.target.classList.add("flip");
+            } else {
+              entry.target.classList.remove("flip");
+            }
+          });
+        },
+        { threshold: 0.6 }
+      );
+      cards.forEach(card => observer.observe(card));
+      */
+    }
   }
+
 });
+
