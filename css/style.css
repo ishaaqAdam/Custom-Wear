@@ -558,7 +558,7 @@ a{color:inherit;text-decoration:none}
   min-width: 100%;
   min-height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: 40% center;
 }
 
 /* Outer rings */
