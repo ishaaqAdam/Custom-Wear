@@ -170,20 +170,34 @@ if(hero) {
 document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".card-inner");
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("scroll-flip");   // flip when in view
-        } else {
-          entry.target.classList.remove("scroll-flip"); // unflip when out of view
-        }
-      });
-    },
-    {
-      threshold: 1.0 // flip when 100% of card is visible
-    }
-  );
+  // Detect mobile
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-  cards.forEach((card) => observer.observe(card));
+  if (isMobile) {
+    //  MOBILE — TAP TO FLIP
+    cards.forEach(card => {
+      card.parentElement.addEventListener("click", () => {
+        card.classList.toggle("flip");
+      });
+    });
+
+  } else {
+    //  DESKTOP — SCROLL FLIP
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("flip");   // flip when visible
+          } else {
+            entry.target.classList.remove("flip"); // unflip when leaving
+          }
+        });
+      },
+      {
+        threshold: 0.6
+      }
+    );
+
+    cards.forEach((card) => observer.observe(card));
+  }
 });
