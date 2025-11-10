@@ -194,3 +194,60 @@ document.addEventListener("DOMContentLoaded", () => {
 
   cards.forEach((card) => observer.observe(card));
 });
+
+/* --- best sellers--- */
+
+const track = document.querySelector('.bs-slider-track');
+const slides = Array.from(document.querySelectorAll('.bs-slide'));
+const btnLeft = document.querySelector('.bs-left');
+const btnRight = document.querySelector('.bs-right');
+
+let index = 1;
+let width = slides[0].clientWidth;
+
+/* ✅ Clone first and last for infinite loop */
+const firstClone = slides[0].cloneNode(true);
+const lastClone = slides[slides.length - 1].cloneNode(true);
+
+track.appendChild(firstClone);
+track.insertBefore(lastClone, track.firstChild);
+
+/* Start position */
+track.style.transform = `translateX(-${width * index}px)`;
+
+/* Arrow navigation */
+btnRight.addEventListener('click', () => {
+  if (index >= slides.length + 1) return;
+  index++;
+  track.style.transition = "0.45s ease";
+  track.style.transform = `translateX(-${width * index}px)`;
+});
+
+btnLeft.addEventListener('click', () => {
+  if (index <= 0) return;
+  index--;
+  track.style.transition = "0.45s ease";
+  track.style.transform = `translateX(-${width * index}px)`;
+});
+
+/* Loop correction */
+track.addEventListener('transitionend', () => {
+  if (slides[index - 1] === firstClone) {
+    track.style.transition = "none";
+    index = 1;
+    track.style.transform = `translateX(-${width * index}px)`;
+  }
+  if (slides[index - 1] === lastClone) {
+    track.style.transition = "none";
+    index = slides.length;
+    track.style.transform = `translateX(-${width * index}px)`;
+  }
+});
+
+/* Resize fix */
+window.addEventListener('resize', () => {
+  width = slides[0].clientWidth;
+  track.style.transition = "none";
+  track.style.transform = `translateX(-${width * index}px)`;
+});
+
