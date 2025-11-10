@@ -988,6 +988,112 @@ a{color:inherit;text-decoration:none}
   }
 }
 
+/* steps 2.0 */
+.order-process {
+  width: 100%;
+  padding: 60px 0;
+  position: relative;
+  background: #ffffff;
+  text-align: center;
+}
+
+.op-title {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+}
+
+/* Container for steps */
+.op-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+}
+
+/* Each step block */
+.op-step {
+  width: 30%;
+  position: relative;
+  padding: 0 20px;
+}
+
+.op-step h3 {
+  margin: 10px 0 5px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #34a853;
+}
+
+.op-step h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.op-step p {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* Icon */
+.op-icon img {
+  width: 80px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Dotted horizontal line (desktop) */
+.op-line {
+  position: absolute;
+  top: 240px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 2px;
+  background-image: linear-gradient(to right, #34a853 20%, rgba(255,255,255,0) 0%);
+  background-size: 12px 2px;
+  background-repeat: repeat-x;
+}
+
+/* ------- MOBILE VERSION ------- */
+@media (max-width: 768px) {
+  .op-container {
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .op-step {
+    width: 100%;
+  }
+
+  /* Vertical dotted line */
+  .op-line {
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: 2px;
+    transform: translateX(-50%);
+    background-image: linear-gradient(#34a853 20%, rgba(255,255,255,0) 0%);
+    background-size: 2px 12px;
+    background-repeat: repeat-y;
+  }
+
+  /* adjust spacing from vertical line */
+  .op-step {
+    text-align: center;
+  }
+
+  .op-icon img {
+    margin: 0 auto;
+  }
+}
+
 
 /* Center the image */
 .bottom-image {
