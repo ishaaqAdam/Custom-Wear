@@ -21,12 +21,13 @@ document.addEventListener('DOMContentLoaded', function(){
         drawer.classList.remove('open');
         drawer.setAttribute('aria-hidden','true');
       });
-         // Bind drawer for each page instance (IDs differ per page)
+        
+    }
+
+     // Bind drawer for each page instance (IDs differ per page)
   wireDrawer('hamburger', 'mobileDrawer', 'drawerClose');
   wireDrawer('hamburger-about', 'navMenuAbout', 'drawerCloseAbout');
   wireDrawer('hamburger-contact', 'navMenuContact', 'drawerCloseContact');
-    }
-
     // Close when clicking a link inside drawer
     drawer.querySelectorAll && drawer.querySelectorAll('a').forEach(a=>{
     drawer.querySelectorAll('a').forEach(a=>{
