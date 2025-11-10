@@ -489,6 +489,117 @@ a{color:inherit;text-decoration:none}
   opacity: 1;
 }
 
+/* --- best sellers --- */
+
+/* Section wrapper */
+.best-sellers-slider {
+  background: #ffffff;
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.bs-title {
+  text-align: center;
+  letter-spacing: 3px;
+  font-size: 22px;
+  margin-bottom: 40px;
+}
+
+/* Slider wrapper */
+.bs-slider-wrapper {
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Track */
+.bs-slider-track {
+  display: flex;
+  transition: transform 0.45s ease;
+}
+
+/* Slide */
+.bs-slide {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.bs-slide img {
+  width: 70%;
+  max-width: 650px;
+  z-index: 2;
+  position: relative;
+}
+
+/* Dotted background behind product */
+.bs-dots {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 550px;
+  height: 350px;
+  transform: translate(-50%, -50%);
+  background-image: radial-gradient(#bcbcbc 2px, transparent 2px);
+  background-size: 26px 26px;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+/* Arrows */
+.bs-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  background: transparent;
+  cursor: pointer;
+  z-index: 3;
+  transition: 0.25s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+}
+
+.bs-left { left: 40px; }
+.bs-right { right: 40px; }
+
+.bs-arrow:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* MOBILE — horizontal scroll instead of arrows */
+@media (max-width: 768px) {
+  .bs-slider-track {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+
+  .bs-slide {
+    scroll-snap-align: center;
+    min-width: 100%;
+  }
+
+  .bs-arrow {
+    display: none;
+  }
+
+  .bs-dots {
+    width: 350px;
+    height: 200px;
+  }
+}
+
 /* --- Pill section --- */
 /* Background */
 .mndset-hero {
