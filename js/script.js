@@ -9,24 +9,22 @@ document.addEventListener('DOMContentLoaded', function(){
 
     if(!ham || !drawer) return;
 
+    // Open drawer
     ham.addEventListener('click', function(){
       drawer.classList.add('open');
       drawer.setAttribute('aria-hidden','false');
     });
 
+    // Close button
     if(closeBtn){
       closeBtn.addEventListener('click', function(){
         drawer.classList.remove('open');
         drawer.setAttribute('aria-hidden','true');
       });
-         // Bind drawer for each page instance (IDs differ per page)
-  wireDrawer('hamburger', 'mobileDrawer', 'drawerClose');
-  wireDrawer('hamburger-about', 'navMenuAbout', 'drawerCloseAbout');
-  wireDrawer('hamburger-contact', 'navMenuContact', 'drawerCloseContact');
     }
 
     // Close when clicking a link inside drawer
-    drawer.querySelectorAll && drawer.querySelectorAll('a').forEach(a=>{
+    drawer.querySelectorAll('a').forEach(a=>{
       a.addEventListener('click', ()=> {
         drawer.classList.remove('open');
         drawer.setAttribute('aria-hidden','true');
@@ -48,8 +46,15 @@ document.addEventListener('DOMContentLoaded', function(){
         drawer.setAttribute('aria-hidden','true');
       }
     });
-   
   }
+
+  // ✅ Bind drawers for all pages (this MUST be outside wireDrawer)
+  wireDrawer('hamburger', 'mobileDrawer', 'drawerClose');
+  wireDrawer('hamburger-about', 'navMenuAbout', 'drawerCloseAbout');
+  wireDrawer('hamburger-contact', 'navMenuContact', 'drawerCloseContact');
+
+});
+
 
 if(window.innerWidth <= 768){
   const galleryWrapper = document.querySelector('.gallery-wrapper');
