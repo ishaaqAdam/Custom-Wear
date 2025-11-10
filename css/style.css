@@ -583,24 +583,27 @@ a{color:inherit;text-decoration:none}
 /* MOBILE — horizontal scroll instead of arrows */
 @media (max-width: 768px) {
   .bs-slider-track {
-    overflow-x: auto;
+    display: flex;
+    overflow-x: scroll;
     scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
   }
 
   .bs-slide {
-    scroll-snap-align: center;
     min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .bs-arrow {
-    display: none;
-  }
-
-  .bs-dots {
-    width: 350px;
-    height: 200px;
+  .bs-slide img {
+    width: 80%;
+    height: auto !important;
+    display: block;
+    z-index: 3;
   }
 }
+
 
 /* --- Pill section --- */
 /* Background */
