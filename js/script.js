@@ -44,12 +44,13 @@ document.addEventListener('DOMContentLoaded', function(){
         drawer.setAttribute('aria-hidden','true');
       }
     });
-      // Bind drawer for each page instance (IDs differ per page)
+  }
+
+  // Bind drawer for each page instance (IDs differ per page)
   wireDrawer('hamburger', 'mobileDrawer', 'drawerClose');
   wireDrawer('hamburger-about', 'navMenuAbout', 'drawerCloseAbout');
   wireDrawer('hamburger-contact', 'navMenuContact', 'drawerCloseContact');
-  }
-
+  
 if(window.innerWidth <= 768){
   const galleryWrapper = document.querySelector('.gallery-wrapper');
   const gallery = galleryWrapper.querySelector('.gallery');
