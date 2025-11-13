@@ -595,6 +595,7 @@ a{color:inherit;text-decoration:none}
     padding-left: 0px; /* optional: give space so first slide isn’t cut */
     display: flex; 
     justify-content: flex-start;
+    transform: none !important; /* stops JS translate on mobile */
    
   }
 
