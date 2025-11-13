@@ -601,6 +601,12 @@ a{color:inherit;text-decoration:none}
     display: block;
     z-index: 3;
   }
+  .bs-dots { 
+    display: none !important;
+  }
+  .bs-arrow {
+    display: none !important;
+  }
 }
 
 
