@@ -1073,6 +1073,7 @@ a{color:inherit;text-decoration:none}
 
   /* Vertical dotted line */
   .op-line {
+    display: none !important;
     top: 0;
     left: 50%;
     height: 100%;
