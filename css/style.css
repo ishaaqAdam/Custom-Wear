@@ -191,7 +191,7 @@ a{color:inherit;text-decoration:none}
 .product-item img {
   width: 60px;
   height: auto;
-  filter: brightness(0); /* black icon */
+  filter: brightness(100); /* black icon */
   transition: transform 0.3s ease;
 }
 
