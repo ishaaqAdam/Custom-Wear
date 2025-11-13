@@ -599,7 +599,7 @@ a{color:inherit;text-decoration:none}
   .bs-slide {
     scroll-snap-align: center; /* snap each slide into view */
     min-width: 80%; /* smaller than full width for better swipe UX */
-    margin-right: 10px; /* optional spacing between slides */
+    margin-right: 60px; /* optional spacing between slides */
   }
 
   .bs-slide img {
