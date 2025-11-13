@@ -583,10 +583,8 @@ a{color:inherit;text-decoration:none}
 /* MOBILE — horizontal scroll instead of arrows */
 @media (max-width: 768px) {
   .bs-slider-track {
-    display: flex;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    overflow-x: visible;
+   
   }
 
   .bs-slide {
