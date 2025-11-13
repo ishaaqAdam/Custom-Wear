@@ -592,14 +592,19 @@ a{color:inherit;text-decoration:none}
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     transition: none; /* avoid conflict with JS */
-    padding-left: 300px; /* optional: give space so first slide isn’t cut */
+    padding-left: 0px; /* optional: give space so first slide isn’t cut */
+    display: flex; 
+    justify-content: flex-start;
    
   }
 
   .bs-slide {
     scroll-snap-align: center; /* snap each slide into view */
-    min-width: 80%; /* smaller than full width for better swipe UX */
-    margin-right: 60px; /* optional spacing between slides */
+    margin-right: 0px; /* optional spacing between slides */
+    flex: 0 0 100%; /* make each slide full width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .bs-slide img {
@@ -607,6 +612,7 @@ a{color:inherit;text-decoration:none}
     height: auto !important;
     display: block;
     z-index: 3;
+     object-fit: contain;
   }
   .bs-dots { 
     display: none !important;
