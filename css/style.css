@@ -841,11 +841,11 @@ a{color:inherit;text-decoration:none}
 @media (min-width: 768px) {
   .footer-inner {
     flex-direction: row;
-    text-align: left;
+    text-align: center;
   }
   .footer-text, .footer-links {
     flex: initial;
-    text-align: left;
+    text-align: center;
   }
 }
 
