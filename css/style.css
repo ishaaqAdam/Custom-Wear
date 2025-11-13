@@ -602,7 +602,7 @@ a{color:inherit;text-decoration:none}
   .bs-slide {
     scroll-snap-align: center; /* snap each slide into view */
     margin-right: 0px; /* optional spacing between slides */
-    flex: 0 0 85%; /* make each slide full width */
+    flex: 0 0 100%; /* make each slide full width */
     display: flex;
     justify-content: center;
     align-items: center;
