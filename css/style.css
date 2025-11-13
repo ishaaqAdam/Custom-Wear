@@ -582,21 +582,28 @@ a{color:inherit;text-decoration:none}
 
 /* MOBILE — horizontal scroll instead of arrows */
 @media (max-width: 768px) {
+  
+   .bs-slider-wrapper {
+    overflow: visible !important; /* allow full slide visibility */
+  }
+  
   .bs-slider-track {
     overflow-x: auto; /* allow horizontal swipe */
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     transition: none; /* avoid conflict with JS */
+    padding-left: 10px; /* optional: give space so first slide isn’t cut */
    
   }
 
   .bs-slide {
     scroll-snap-align: center; /* snap each slide into view */
     min-width: 80%; /* smaller than full width for better swipe UX */
+    margin-right: 10px; /* optional spacing between slides */
   }
 
   .bs-slide img {
-    width: 80%;
+    width: 100%;
     height: auto !important;
     display: block;
     z-index: 3;
