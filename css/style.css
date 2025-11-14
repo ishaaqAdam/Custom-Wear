@@ -1040,37 +1040,46 @@ a{color:inherit;text-decoration:none}
   color: #333;
 }
 
-/* --- TIMELINE SECTION --- */
+/* WRAPPER for timeline + image */
+.timeline-image-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+  padding: 40px 20px;
+}
+
+/* ---- TIMELINE SECTION ---- */
 .timeline-section {
-  margin-top: 60px;
+  flex: 1;
+  margin-top: 10px;
+  padding-right: 20px;
 }
 
 .timeline-section h2 {
   text-align: center;
   font-size: 28px;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
 }
 
-/* --- TIMELINE WRAPPER --- */
+/* TIMELINE and vertical line */
 .timeline {
   position: relative;
-  max-width: 700px;         /* Keeps it centered nicely */
-  margin: 0 auto;           /* Centers the whole timeline */
-  padding-left: 40px;       /* Pushes it slightly right so text sits more center */
+  padding-left: 40px;
+  padding-top: 10px;
 }
 
-/* Vertical line */
 .timeline:before {
   content: "";
   position: absolute;
-  left: 22px;               /* Position of vertical line */
+  left: 22px;
   top: 0;
   width: 3px;
   height: 100%;
   background: #000;
 }
 
-/* TIMELINE ITEM */
 .timeline-item {
   position: relative;
   margin-bottom: 45px;
@@ -1078,7 +1087,7 @@ a{color:inherit;text-decoration:none}
   align-items: flex-start;
 }
 
-/* DOT */
+/* Dot */
 .dot {
   width: 15px;
   height: 15px;
@@ -1090,12 +1099,13 @@ a{color:inherit;text-decoration:none}
   z-index: 3;
 }
 
-/* CONTENT */
+/* Content shifted slightly right so layout moves left */
 .timeline-content {
-  margin-left: 40px;    /* Moves text to a better centered position */
-  max-width: 500px;
+  margin-left: 50px;
+  max-width: 520px;
 }
 
+/* Year badge */
 .timeline-year {
   font-size: 20px;
   font-weight: bold;
@@ -1109,30 +1119,35 @@ a{color:inherit;text-decoration:none}
 
 .timeline-item p {
   font-size: 15px;
-  color: #333;
   line-height: 1.5;
-  text-align: left;     /* Stays left aligned */
+  color: #333;
 }
 
-/* MOBILE */
-@media(max-width: 600px) {
-  .timeline {
-    padding-left: 30px;
-  }
-
-  .timeline:before {
-    left: 18px;
-  }
-
-  .dot {
-    left: 12px;
-  }
-
-  .timeline-content {
-    margin-left: 35px;
-  }
+/* ---- RIGHT SIDE IMAGE ---- */
+.timeline-image-container {
+  flex: 0 0 40%;
+  display: flex;
+  align-items: stretch;
 }
 
+.timeline-side-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;      /* Rounded corners */
+}
+
+/* ---- MOBILE VIEW ---- */
+@media(max-width: 900px) {
+  .timeline-image-wrapper {
+    flex-direction: column;
+  }
+
+  .timeline-image-container {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
 
 
 
