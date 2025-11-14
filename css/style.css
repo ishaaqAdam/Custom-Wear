@@ -990,6 +990,16 @@ a{color:inherit;text-decoration:none}
   color: #000;
 }
 
+/* --- WRAPPER --- */
+.about-wrapper {
+  width: 100%;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+  color: #000;
+}
+
 /* --- STORY BLOCKS --- */
 .story-blocks {
   display: grid;
@@ -1011,9 +1021,11 @@ a{color:inherit;text-decoration:none}
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
-.story-item .icon {
-  font-size: 40px;
-  margin-bottom: 10px;
+.story-icon {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  margin-bottom: 15px;
 }
 
 .story-item h3 {
@@ -1090,7 +1102,13 @@ a{color:inherit;text-decoration:none}
   .timeline-item {
     padding-left: 35px;
   }
+
+  .story-icon {
+    width: 45px;
+    height: 45px;
+  }
 }
+
 
 
 /* Optional subtle divider between sections */
