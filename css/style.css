@@ -1605,3 +1605,122 @@ a{color:inherit;text-decoration:none}
 
 }
 
+/* --- Gallery Page Styling --- */
+
+.page-gallery main {
+  margin-top: 60px; /* same spacing below fixed header */
+  animation: fadeIn 0.8s ease-out both; /* same fade-in */
+}
+
+/* Headings */
+.page-gallery h1,
+.page-gallery h2 {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+/* Intro paragraph */
+.page-gallery .intro {
+  color: var(--muted);
+  max-width: none;
+  margin: 0 auto 30px;
+  text-align: center;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* Section spacing */
+.page-gallery .section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* Optional divider between content blocks */
+.page-gallery .section:not(:last-of-type) {
+  border-bottom: 1px solid var(--muted-2);
+}
+
+/* --- GALLERY GRID --- */
+.gallery-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.gallery .card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+  background: #000;
+}
+
+.gallery .card:hover {
+  transform: translateY(-4px);
+}
+
+.gallery .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- BOTTOM IMAGE consistency --- */
+.page-gallery .bottom-image img {
+  width: 100%;
+  display: block;
+  margin-top: 40px;
+  border-radius: 0;
+}
+
+/* --- RESPONSIVE --- */
+
+@media (max-width: 1024px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-gallery .intro {
+    font-size: 1rem;
+    padding: 0 16px;
+  }
+
+  .page-gallery h1 {
+    font-size: 1.8rem;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-gallery h1 {
+    font-size: 1.5rem;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr; /* single column on very small screens */
+    gap: 12px;
+  }
+}
+
+
