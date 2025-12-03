@@ -1605,16 +1605,19 @@ a{color:inherit;text-decoration:none}
 
 }
 
-/* --- Gallery Page Styling --- */
+/* =========================================================
+   FULL GALLERY PAGE — ISOLATED STYLING
+   Wrapped in .full-gallery-page so it doesn't affect index
+   ========================================================= */
 
-.page-gallery main {
-  margin-top: 60px; /* same spacing below fixed header */
-  animation: fadeIn 0.8s ease-out both; /* same fade-in */
+.full-gallery-page main {
+  margin-top: 60px;
+  animation: fadeIn 0.8s ease-out both;
 }
 
 /* Headings */
-.page-gallery h1,
-.page-gallery h2 {
+.full-gallery-page h1,
+.full-gallery-page h2 {
   font-family: 'Montserrat', sans-serif;
   text-align: center;
   font-weight: 700;
@@ -1623,7 +1626,7 @@ a{color:inherit;text-decoration:none}
 }
 
 /* Intro paragraph */
-.page-gallery .intro {
+.full-gallery-page .intro {
   color: var(--muted);
   max-width: none;
   margin: 0 auto 30px;
@@ -1633,24 +1636,26 @@ a{color:inherit;text-decoration:none}
 }
 
 /* Section spacing */
-.page-gallery .section {
+.full-gallery-page .section {
   padding-top: 40px;
   padding-bottom: 40px;
 }
 
-/* Optional divider between content blocks */
-.page-gallery .section:not(:last-of-type) {
+.full-gallery-page .section:not(:last-of-type) {
   border-bottom: 1px solid var(--muted-2);
 }
 
-/* --- GALLERY GRID --- */
-.gallery-wrapper {
+/* =========================================================
+   GALLERY GRID (NEW, SEPARATE FROM INDEX)
+   ========================================================= */
+
+.full-gallery-page .full-gallery-wrapper {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.gallery {
+.full-gallery-page .full-gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
@@ -1659,7 +1664,7 @@ a{color:inherit;text-decoration:none}
   margin: 0 auto;
 }
 
-.gallery .card {
+.full-gallery-page .full-gallery-card {
   position: relative;
   border-radius: 12px;
   overflow: hidden;
@@ -1668,57 +1673,59 @@ a{color:inherit;text-decoration:none}
   background: #000;
 }
 
-.gallery .card:hover {
+.full-gallery-page .full-gallery-card:hover {
   transform: translateY(-4px);
 }
 
-.gallery .card img {
+.full-gallery-page .full-gallery-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-/* --- BOTTOM IMAGE consistency --- */
-.page-gallery .bottom-image img {
+/* Bottom decorative image */
+.full-gallery-page .bottom-image img {
   width: 100%;
   display: block;
   margin-top: 40px;
   border-radius: 0;
 }
 
-/* --- RESPONSIVE --- */
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
 
 @media (max-width: 1024px) {
-  .gallery {
+  .full-gallery-page .full-gallery-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
 }
 
 @media (max-width: 768px) {
-  .page-gallery .intro {
+  .full-gallery-page .intro {
     font-size: 1rem;
     padding: 0 16px;
   }
 
-  .page-gallery h1 {
+  .full-gallery-page h1 {
     font-size: 1.8rem;
   }
 
-  .gallery {
+  .full-gallery-page .full-gallery-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 14px;
   }
 }
 
 @media (max-width: 480px) {
-  .page-gallery h1 {
+  .full-gallery-page h1 {
     font-size: 1.5rem;
   }
 
-  .gallery {
-    grid-template-columns: 1fr; /* single column on very small screens */
+  .full-gallery-page .full-gallery-grid {
+    grid-template-columns: 1fr;
     gap: 12px;
   }
 }
