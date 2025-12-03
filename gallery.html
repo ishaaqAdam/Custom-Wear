@@ -36,7 +36,7 @@
     </div>
   </header>
 
-  <!-- MOBILE DRAWER (same as contact page) -->
+  <!-- MOBILE DRAWER -->
   <nav class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
     <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
     <ul class="drawer-list">
@@ -60,20 +60,45 @@
       <div class="gallery-wrapper">
         <div class="gallery">
 
-          <!-- Add all your gallery images here -->
-          <div class="card"><img src="images/sample1.jpg" alt=""></div>
-          <div class="card"><img src="images/sample2.jpg" alt=""></div>
-          <div class="card"><img src="images/sample3.jpg" alt=""></div>
-          <div class="card"><img src="images/sample4.jpg" alt=""></div>
-          <div class="card"><img src="images/sample5.jpg" alt=""></div>
-          <div class="card"><img src="images/sample6.jpg" alt=""></div>
+          <!-- Correct structure for lightbox -->
+          <div class="card" data-caption="Corporate T-Shirts">
+            <img src="images/sample1.jpg" alt="Corporate T-Shirts">
+          </div>
+
+          <div class="card" data-caption="Sportswear Custom Print">
+            <img src="images/sample2.jpg" alt="Sportswear Custom Print">
+          </div>
+
+          <div class="card" data-caption="Minimalist Hoodie">
+            <img src="images/sample3.jpg" alt="Minimalist Hoodie">
+          </div>
+
+          <div class="card" data-caption="Logo Embroidery">
+            <img src="images/sample4.jpg" alt="Logo Embroidery">
+          </div>
+
+          <div class="card" data-caption="Uniform Branding">
+            <img src="images/sample5.jpg" alt="Uniform Branding">
+          </div>
+
+          <div class="card" data-caption="Promotional Wear">
+            <img src="images/sample6.jpg" alt="Promotional Wear">
+          </div>
 
         </div>
       </div>
     </section>
 
-    
   </main>
+
+
+  <!-- ✅ LIGHTBOX (required for click-to-zoom) -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <span id="lbClose" class="lb-close">&times;</span>
+    <img id="lbImage" class="lb-content" src="" alt="">
+    <p id="lbCaption" class="lb-caption"></p>
+  </div>
+
 
   <footer class="footer">
     <div class="container footer-inner">
@@ -92,4 +117,5 @@
 
   <script src="js/script.js"></script>
 </body>
-</html>
+<
+
