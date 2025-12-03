@@ -784,6 +784,27 @@ a{color:inherit;text-decoration:none}
 .card img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .35s ease}
 .card:hover img{transform:scale(1.03)}
 .swipe{text-align: center}
+.see-more-wrapper {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.see-more-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #000;
+  color: #fff;
+  border-radius: 30px;
+  font-size: 16px;
+  text-decoration: none;
+  border: 1px solid var(--muted-2);
+  transition: 0.3s;
+}
+
+.see-more-btn:hover {
+  background: #fff;
+  color: #000;
+}
 
 /* Center the Gallery heading */
 .gallery-title {
