@@ -898,6 +898,11 @@ a{color:inherit;text-decoration:none}
     gap: 20px;
   }
 
+  .footer-text{ 
+    text-align: center;
+    padding-bottom: 10px
+  }    
+
   /* Center quick links */
   .footer-quick {
     width: 100%;
