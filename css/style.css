@@ -1832,6 +1832,20 @@ a{color:inherit;text-decoration:none}
   }
 }
 
+/* =========================================================
+   FORCE SOLID HEADER ONLY ON GALLERY PAGE
+   ========================================================= */
+
+.full-gallery-page header {
+  background: #000 !important;     /* Solid black */
+  position: fixed;                 /* Keep same layout */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;                    /* Ensure it stays above images */
+  border-bottom: 1px solid var(--muted-2);
+}
+
 /* ============================
    Responsive grid breakpoints
    ============================ */
