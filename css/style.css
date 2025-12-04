@@ -904,11 +904,6 @@ a{color:inherit;text-decoration:none}
     padding-left: 10px;
   }    
 
-  .full-gallery-page .full-gallery-grid {
-    grid-template-columns: repeat(2, 1fr);  /* 2 images per row */
-    gap: 10px;
-  }  
-
   /* Center quick links */
   .footer-quick {
     width: 100%;
