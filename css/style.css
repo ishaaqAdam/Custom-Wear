@@ -1882,6 +1882,16 @@ a{color:inherit;text-decoration:none}
   .full-gallery-page h1 {
     font-size: 1.5rem;
   }
+  .full-gallery-page header {
+  background: #000 !important;     /* Solid black */
+  position: fixed;                 /* Keep same layout */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;                    /* Ensure it stays above images */
+  border-bottom: 1px solid var(--muted-2);
+}
+
 
 }
 
@@ -1906,6 +1916,16 @@ a{color:inherit;text-decoration:none}
   .full-gallery-page h1 {
     font-size: 1.5rem;
   }
+  .full-gallery-page header {
+  background: #000 !important;     /* Solid black */
+  position: fixed;                 /* Keep same layout */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;                    /* Ensure it stays above images */
+  border-bottom: 1px solid var(--muted-2);
+}
+
 
 }
 
@@ -1930,5 +1950,15 @@ a{color:inherit;text-decoration:none}
   .full-gallery-page h1 {
     font-size: 1.5rem;
   }
+  .full-gallery-page header {
+  background: #000 !important;     /* Solid black */
+  position: fixed;                 /* Keep same layout */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;                    /* Ensure it stays above images */
+  border-bottom: 1px solid var(--muted-2);
+}
+
 
 }
