@@ -1606,18 +1606,17 @@ a{color:inherit;text-decoration:none}
 }
 
 /* =========================================================
-   FULL GALLERY PAGE — ISOLATED STYLING
-   Wrapped in .full-gallery-page so it doesn't affect index
+   Gallery page — WORKING CSS 
    ========================================================= */
 
-.full-gallery-page main {
+/* Page layout + heading */
+.page-gallery main {
   margin-top: 60px;
   animation: fadeIn 0.8s ease-out both;
 }
 
-/* Headings */
-.full-gallery-page h1,
-.full-gallery-page h2 {
+.page-gallery h1,
+.page-gallery h2 {
   font-family: 'Montserrat', sans-serif;
   text-align: center;
   font-weight: 700;
@@ -1625,8 +1624,7 @@ a{color:inherit;text-decoration:none}
   margin-bottom: 20px;
 }
 
-/* Intro paragraph */
-.full-gallery-page .intro {
+.page-gallery .intro {
   color: var(--muted);
   max-width: none;
   margin: 0 auto 30px;
@@ -1635,143 +1633,171 @@ a{color:inherit;text-decoration:none}
   font-size: 1.05rem;
 }
 
-/* Section spacing */
-.full-gallery-page .section {
+.page-gallery .section {
   padding-top: 40px;
   padding-bottom: 40px;
 }
 
-.full-gallery-page .section:not(:last-of-type) {
+.page-gallery .section:not(:last-of-type) {
   border-bottom: 1px solid var(--muted-2);
 }
 
-/* =========================================================
-   GALLERY GRID (NEW, SEPARATE FROM INDEX)
-   ========================================================= */
-
-.full-gallery-page .full-gallery-wrapper {
+/* Gallery grid (scoped) */
+.page-gallery .gallery-page-wrapper {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.full-gallery-page .full-gallery-grid {
+.page-gallery .gallery-page {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
+  align-items: stretch;
 }
 
-.full-gallery-page .full-gallery-card {
+.page-gallery .gallery-page-card {
   position: relative;
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.25s ease;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
   background: #000;
+  min-height: 200px; /* keeps a consistent card height if images are different sizes */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.full-gallery-page .full-gallery-card:hover {
-  transform: translateY(-4px);
-}
-
-.full-gallery-page .full-gallery-card img {
+.page-gallery .gallery-page-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  vertical-align: middle;
+  transition: transform .35s ease;
+}
+
+/* hover only for devices that support it */
+@media (hover: hover) and (pointer: fine) {
+  .page-gallery .gallery-page-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  }
+  .page-gallery .gallery-page-card:hover img {
+    transform: scale(1.03);
+  }
 }
 
 /* Bottom decorative image */
-.full-gallery-page .bottom-image img {
+.page-gallery .bottom-image img {
   width: 100%;
   display: block;
   margin-top: 40px;
   border-radius: 0;
 }
 
-/* Gallery Page Lightbox */
-#galleryLightbox {
+/* ============================
+   Lightbox (scoped to .page-gallery)
+   Uses your existing HTML: #lightbox, #lbImage, #lbCaption, #lbClose
+   ============================ */
+
+.page-gallery #lightbox {
+  display: none;             /* hidden by default */
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.85);
-  display: none;
-  justify-content: center;
-  align-items: center;
+  inset: 0;                  /* top:0; right:0; bottom:0; left:0 */
+  background: rgba(0,0,0,0.90);
   z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  box-sizing: border-box;
   flex-direction: column;
-  padding: 20px;
+  gap: 14px;
+  pointer-events: none;
 }
 
-#galleryLightbox.open {
+.page-gallery #lightbox.open {
   display: flex;
+  pointer-events: auto;
 }
 
-#galleryLightbox .lb-img {
-  max-width: 90%;
-  max-height: 80%;
-  margin-bottom: 15px;
-  border-radius: 10px;
-  object-fit: contain;
-}
-
-#galleryLightbox .lb-caption {
-  color: #fff;
-  font-size: 1rem;
-  text-align: center;
-}
-
-#galleryLightbox .lb-close {
+/* close button (matches id in your HTML: lbClose) */
+.page-gallery #lbClose,
+.page-gallery .lb-close {
   position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 2rem;
+  top: 18px;
+  right: 22px;
+  font-size: 36px;
   color: #fff;
   cursor: pointer;
-  font-weight: bold;
+  line-height: 1;
+  z-index: 10010;
+  background: transparent;
+  border: none;
+  padding: 6px 10px;
 }
 
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
+/* image inside lightbox */
+.page-gallery #lbImage,
+.page-gallery .lb-content {
+  max-width: 92%;
+  max-height: 78vh;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  object-fit: contain;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.6);
+}
 
+/* caption */
+.page-gallery #lbCaption,
+.page-gallery .lb-caption {
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  max-width: 92%;
+  line-height: 1.4;
+  opacity: 0.95;
+}
+
+/* small-screen adjustments */
+@media (max-width: 520px) {
+  .page-gallery #lbImage,
+  .page-gallery .lb-content {
+    max-width: 96%;
+    max-height: 72vh;
+    border-radius: 6px;
+  }
+  .page-gallery #lbClose,
+  .page-gallery .lb-close {
+    font-size: 28px;
+    top: 12px;
+    right: 14px;
+  }
+}
+
+/* ============================
+   Responsive grid breakpoints
+   ============================ */
 @media (max-width: 1024px) {
-  .full-gallery-page .full-gallery-grid {
+  .page-gallery .gallery-page {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
 }
 
 @media (max-width: 768px) {
-  .full-gallery-page .intro {
-    font-size: 1rem;
-    padding: 0 16px;
-  }
-
-  .full-gallery-page h1 {
-    font-size: 1.8rem;
-  }
-
-  .full-gallery-page .full-gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
+  .page-gallery .intro { font-size: 1rem; padding: 0 16px; }
+  .page-gallery h1 { font-size: 1.8rem; }
+  .page-gallery .gallery-page { grid-template-columns: repeat(2, 1fr); gap: 14px; }
 }
 
 @media (max-width: 480px) {
-  .full-gallery-page h1 {
-    font-size: 1.5rem;
-  }
-
-  .full-gallery-page .full-gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
+  .page-gallery h1 { font-size: 1.5rem; }
+  .page-gallery .gallery-page { grid-template-columns: 1fr; gap: 12px; }
+  .page-gallery .gallery-page-card { min-height: 140px; }
 }
-
-
