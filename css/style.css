@@ -304,7 +304,7 @@ a{color:inherit;text-decoration:none}
 /* --- Our Services --- */
 /* Basic reset / container */
 .our-services-section {
-  background-color: #f3efe7;  /* light background colour, adjust as desired */
+  background-color: #f8f8f8;  /* light background colour, adjust as desired */
   padding: 60px 20px;
   font-family: 'Montserrat', sans-serif;
   text-align: center;
@@ -627,7 +627,7 @@ a{color:inherit;text-decoration:none}
 /* --- Pill section --- */
 /* Background */
 .mndset-hero {
-  background: #f3efe7;
+  background: #f8f8f8;
   padding: 180px 20px 160px;
   display: flex;
   justify-content: center;
@@ -1426,7 +1426,7 @@ a{color:inherit;text-decoration:none}
 }
 
 .info-card {
-  background-color: #f3efe7;
+  background-color: #f8f8f8;
   border-radius: 15px;
   padding: 25px;
   text-align: center;
