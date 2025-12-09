@@ -253,7 +253,7 @@ window.addEventListener('resize', () => {
 });
 
 /* ---------- Gallery Page Lightbox ---------- */
-const galleryCards = document.querySelectorAll('.full-gallery-grid .full-gallery-card');
+const galleryCards = document.querySelectorAll('.gallery-page-card');
 const galleryLB = document.getElementById('galleryLightbox');
 const galleryLBImg = document.getElementById('galleryLbImage');
 const galleryLBCap = document.getElementById('galleryLbCaption');
