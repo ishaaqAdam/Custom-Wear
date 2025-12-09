@@ -1714,7 +1714,7 @@ a{color:inherit;text-decoration:none}
 }
 
 /* =========================================================
-   Gallery page — WORKING CSS 
+   GALLERY PAGE — FIXED CSS
    ========================================================= */
 
 /* Page layout + heading */
@@ -1734,7 +1734,6 @@ a{color:inherit;text-decoration:none}
 
 .page-gallery .intro {
   color: var(--muted);
-  max-width: none;
   margin: 0 auto 30px;
   text-align: center;
   line-height: 1.7;
@@ -1750,7 +1749,10 @@ a{color:inherit;text-decoration:none}
   border-bottom: 1px solid var(--muted-2);
 }
 
-/* Gallery grid (scoped) */
+/* =========================================================
+   FIXED GALLERY GRID
+   ========================================================= */
+
 .page-gallery .gallery-page-wrapper {
   width: 100%;
   display: flex;
@@ -1764,7 +1766,6 @@ a{color:inherit;text-decoration:none}
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  align-items: stretch;
 }
 
 .page-gallery .gallery-page-card {
@@ -1772,9 +1773,9 @@ a{color:inherit;text-decoration:none}
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  transition: 0.28s ease;
   background: #000;
-  min-height: 200px; /* keeps a consistent card height if images are different sizes */
+  min-height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1784,12 +1785,10 @@ a{color:inherit;text-decoration:none}
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  vertical-align: middle;
   transition: transform .35s ease;
 }
 
-/* hover only for devices that support it */
+/* Hover (desktop only) */
 @media (hover: hover) and (pointer: fine) {
   .page-gallery .gallery-page-card:hover {
     transform: translateY(-6px);
@@ -1800,29 +1799,26 @@ a{color:inherit;text-decoration:none}
   }
 }
 
-/* Bottom decorative image */
+/* Bottom image */
 .page-gallery .bottom-image img {
   width: 100%;
   display: block;
   margin-top: 40px;
-  border-radius: 0;
 }
 
-/* ============================
-   Lightbox (scoped to .page-gallery)
-   Uses your existing HTML: #lightbox, #lbImage, #lbCaption, #lbClose
-   ============================ */
+/* =========================================================
+   LIGHTBOX
+   ========================================================= */
 
 .page-gallery #lightbox {
-  display: none;             /* hidden by default */
+  display: none;
   position: fixed;
-  inset: 0;                  /* top:0; right:0; bottom:0; left:0 */
-  background: rgba(0,0,0,0.90);
+  inset: 0;
+  background: rgba(0,0,0,0.9);
   z-index: 9999;
   align-items: center;
   justify-content: center;
   padding: 28px;
-  box-sizing: border-box;
   flex-direction: column;
   gap: 14px;
   pointer-events: none;
@@ -1833,177 +1829,71 @@ a{color:inherit;text-decoration:none}
   pointer-events: auto;
 }
 
-/* close button (matches id in your HTML: lbClose) */
-.page-gallery #lbClose,
-.page-gallery .lb-close {
+.page-gallery #lbClose {
   position: absolute;
   top: 18px;
   right: 22px;
   font-size: 36px;
   color: #fff;
   cursor: pointer;
-  line-height: 1;
-  z-index: 10010;
-  background: transparent;
+  background: none;
   border: none;
-  padding: 6px 10px;
 }
 
-/* image inside lightbox */
-.page-gallery #lbImage,
-.page-gallery .lb-content {
+.page-gallery #lbImage {
   max-width: 92%;
   max-height: 78vh;
-  width: auto;
-  height: auto;
   border-radius: 10px;
   object-fit: contain;
-  box-shadow: 0 18px 50px rgba(0,0,0,0.6);
 }
 
-/* caption */
-.page-gallery #lbCaption,
-.page-gallery .lb-caption {
+.page-gallery #lbCaption {
   color: #fff;
   text-align: center;
   font-size: 14px;
-  max-width: 92%;
-  line-height: 1.4;
   opacity: 0.95;
 }
 
-/* small-screen adjustments */
-@media (max-width: 520px) {
-  .page-gallery #lbImage,
-  .page-gallery .lb-content {
-    max-width: 96%;
-    max-height: 72vh;
-    border-radius: 6px;
-  }
-  .page-gallery #lbClose,
-  .page-gallery .lb-close {
-    font-size: 28px;
-    top: 12px;
-    right: 14px;
-  }
-}
-
 /* =========================================================
-   FORCE SOLID HEADER ONLY ON GALLERY PAGE
+   ALWAYS FORCE SOLID HEADER ON THIS PAGE
    ========================================================= */
 
-.full-gallery-page header {
-  background: #000 !important;     /* Solid black */
-  position: fixed;                 /* Keep same layout */
+.page-gallery header {
+  background: #000 !important;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 999;                    /* Ensure it stays above images */
+  z-index: 999;
   border-bottom: 1px solid var(--muted-2);
 }
 
-/* ============================
-   Responsive grid breakpoints
-   ============================ */
+/* =========================================================
+   RESPONSIVE GRID FIX — 2 IMAGES PER ROW ON MOBILE
+   ========================================================= */
+
 @media (max-width: 1024px) {
   .page-gallery .gallery-page {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
-  .full-gallery-page header {
-  background: #000 !important;     /* Solid black */
-  position: fixed;                 /* Keep same layout */
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;                    /* Ensure it stays above images */
-  border-bottom: 1px solid var(--muted-2);
-}
-  .full-gallery-page .full-gallery-grid {
-    grid-template-columns: repeat(2, 1fr);  /* 2 images per row */
-    gap: 10px;
-  }
-
-  .full-gallery-page h1 {
-    font-size: 1.5rem;
-  }
-  .full-gallery-page header {
-  background: #000 !important;     /* Solid black */
-  position: fixed;                 /* Keep same layout */
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;                    /* Ensure it stays above images */
-  border-bottom: 1px solid var(--muted-2);
-}
-
-
 }
 
 @media (max-width: 768px) {
-  .page-gallery .intro { font-size: 1rem; padding: 0 16px; }
-  .page-gallery h1 { font-size: 1.8rem; }
-  .page-gallery .gallery-page { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .full-gallery-page header {
-  background: #000 !important;     /* Solid black */
-  position: fixed;                 /* Keep same layout */
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;                    /* Ensure it stays above images */
-  border-bottom: 1px solid var(--muted-2);
-}
-  .full-gallery-page .full-gallery-grid {
-    grid-template-columns: repeat(2, 1fr);  /* 2 images per row */
-    gap: 10px;
+  .page-gallery .gallery-page {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
   }
-
-  .full-gallery-page h1 {
-    font-size: 1.5rem;
-  }
-  .full-gallery-page header {
-  background: #000 !important;     /* Solid black */
-  position: fixed;                 /* Keep same layout */
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;                    /* Ensure it stays above images */
-  border-bottom: 1px solid var(--muted-2);
-}
-
-
 }
 
 @media (max-width: 480px) {
-  .page-gallery h1 { font-size: 1.5rem; }
-  .page-gallery .gallery-page { grid-template-columns: 1fr; gap: 12px; }
-  .page-gallery .gallery-page-card { min-height: 140px; }
-  .full-gallery-page header {
-  background: #000 !important;     /* Solid black */
-  position: fixed;                 /* Keep same layout */
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;                    /* Ensure it stays above images */
-  border-bottom: 1px solid var(--muted-2);
-}
-  .full-gallery-page .full-gallery-grid {
-    grid-template-columns: repeat(2, 1fr);  /* 2 images per row */
-    gap: 10px;
+  .page-gallery .gallery-page {
+    grid-template-columns: repeat(2, 1fr); /* FIXED – 2 per row */
+    gap: 12px;
   }
 
-  .full-gallery-page h1 {
-    font-size: 1.5rem;
+  .page-gallery .gallery-page-card {
+    min-height: 140px;
   }
-  .full-gallery-page header {
-  background: #000 !important;     /* Solid black */
-  position: fixed;                 /* Keep same layout */
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;                    /* Ensure it stays above images */
-  border-bottom: 1px solid var(--muted-2);
 }
 
-
-}
