@@ -1851,7 +1851,7 @@ a{color:inherit;text-decoration:none}
 
 .page-gallery header {
   background: #fff !important;
-  text-color: #000;
+  color: #000;
   position: fixed;
   top: 0;
   left: 0;
@@ -1871,7 +1871,7 @@ a{color:inherit;text-decoration:none}
   }
   .page-gallery header {
   background: #fff !important;
-  text-color: #000;
+  color: #000;
 }
 }
 
@@ -1885,7 +1885,7 @@ a{color:inherit;text-decoration:none}
   }
   .page-gallery header {
   background: #fff !important;
-  text-color: #000;
+  color: #000;
 }
 }
 
@@ -1903,6 +1903,6 @@ a{color:inherit;text-decoration:none}
   }
   .page-gallery header {
   background: #fff !important;
-  text-color: #000;
+  color: #000;
 }
 }
