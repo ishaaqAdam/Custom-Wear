@@ -1821,7 +1821,7 @@ a{color:inherit;text-decoration:none}
   padding: 28px;
   flex-direction: column;
   gap: 14px;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .page-gallery #lightbox.open {
