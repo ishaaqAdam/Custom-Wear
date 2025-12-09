@@ -1665,6 +1665,9 @@ a{color:inherit;text-decoration:none}
 .bottom-image img {
   padding-left: 20px;
   padding-right: 20px;
+   max-width: 100%; /* Make it responsive */
+    height: auto;
+    border-radius: 8px; /* optional: rounded corners */
 }
 
 
