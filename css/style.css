@@ -1855,10 +1855,6 @@ a{color:inherit;text-decoration:none}
   opacity: 0.95;
 }
 
- .header {
-    z-index: 900;
- }
-
 /* =========================================================
    RESPONSIVE GRID FIX — 2 IMAGES PER ROW ON MOBILE
    ========================================================= */
