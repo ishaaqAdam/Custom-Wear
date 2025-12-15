@@ -1855,20 +1855,6 @@ a{color:inherit;text-decoration:none}
   opacity: 0.95;
 }
 
-/* =========================================================
-   ALWAYS FORCE SOLID HEADER ON THIS PAGE
-   ========================================================= */
-
-.page-gallery header {
-  background: #fff !important;
-  color: #000 !important;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-  border-bottom: 1px solid var(--muted-2);
-}
  .header {
     z-index: 900;
  }
