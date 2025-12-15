@@ -1004,26 +1004,31 @@ a{color:inherit;text-decoration:none}
 }
 /* --- Force Solid Header on Non-Hero Pages --- */
 .page-about .header,
-.page-contact .header {
+.page-contact .header,
+.page-gallery . header {
   background: #fff !important;
   box-shadow: 0 6px 18px rgba(11,23,36,0.06) !important;
 }
 
 .page-about .header .site-title,
 .page-contact .header .site-title,
+.page-gallery .header .site-title,
 .page-about .desktop-nav a,
-.page-contact .desktop-nav a {
+.page-contact .desktop-nav a,
+.page-gallery .desktop-nav a{
   color: #000 !important;
 }
 
 .page-about .desktop-nav .cta,
-.page-contact .desktop-nav .cta {
+.page-contact .desktop-nav .cta,
+.page-gallery .desktop-nav .cta{
   background: #000 !important;
   color: #fff !important;
 }
 
 .page-about .header .logo img,
-.page-contact .header .logo img {
+.page-contact .header .logo img,
+.page-gallery .header .logo img{
   filter: none !important;
 }
 
