@@ -1890,6 +1890,9 @@ a{color:inherit;text-decoration:none}
   background: #fff !important;
   color: #000;
 }
+ .header {
+    z-index: 900;
+  }
 }
 
 @media (max-width: 480px) {
