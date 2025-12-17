@@ -292,4 +292,4 @@ if(galleryCards.length > 0 && galleryLB){
       galleryLB.setAttribute('aria-hidden','true');
     }
   });
-  
+}
