@@ -1005,7 +1005,7 @@ a{color:inherit;text-decoration:none}
 /* --- Force Solid Header on Non-Hero Pages --- */
 .page-about .header,
 .page-contact .header,
-.page-gallery . header {
+.page-gallery .header {
   background: #fff !important;
   box-shadow: 0 6px 18px rgba(11,23,36,0.06) !important;
 }
