@@ -238,12 +238,6 @@ a{color:inherit;text-decoration:none}
     box-shadow: none;
   }
 
-  /* Mobile nav / hamburger colors */
-  .header.solid *,
-  .header.solid a {
-    color: #000 !important;
-  }
-
   .header.transparent:not(.solid) *,
   .header.transparent:not(.solid) a {
     color: #fff;
@@ -273,12 +267,6 @@ a{color:inherit;text-decoration:none}
   .header.transparent:not(.solid) {
     background: transparent;
     box-shadow: none;
-  }
-
-  /* Mobile nav / hamburger colors */
-  .header.solid *,
-  .header.solid a {
-    color: #000 !important;
   }
 
   .header.transparent:not(.solid) *,
