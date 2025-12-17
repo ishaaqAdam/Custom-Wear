@@ -252,7 +252,6 @@ window.addEventListener('resize', () => {
   track.style.transform = `translateX(-${width * index}px)`;
 });
 
-document.addEventListener('DOMContentLoaded', function () {
 /* ---------- Gallery Page Lightbox ---------- */
 const galleryCards = document.querySelectorAll('.gallery-page-card');
 const galleryLB = document.getElementById('galleryLightbox');
@@ -293,5 +292,4 @@ if(galleryCards.length > 0 && galleryLB){
       galleryLB.setAttribute('aria-hidden','true');
     }
   });
-  }}
-
+  
