@@ -238,11 +238,6 @@ a{color:inherit;text-decoration:none}
     box-shadow: none;
   }
 
-  .header.transparent:not(.solid) *,
-  .header.transparent:not(.solid) a {
-    color: #fff;
-  }
-
   .header.solid .logo img {
     filter: none !important;
   }
@@ -267,11 +262,6 @@ a{color:inherit;text-decoration:none}
   .header.transparent:not(.solid) {
     background: transparent;
     box-shadow: none;
-  }
-
-  .header.transparent:not(.solid) *,
-  .header.transparent:not(.solid) a {
-    color: #fff;
   }
 
   .header.solid .logo img {
